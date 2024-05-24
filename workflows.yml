@@ -4,7 +4,7 @@ test_build:
         source_project: linglong:app
         source_package: %{SCM_REPOSITORY_NAME}
         target_project: linglong:app:CI
-        target_project: %{SCM_REPOSITORY_NAME}-link
+        target_package: %{SCM_REPOSITORY_NAME}-link
 
     - configure_repositories:
         project: linglong:app:CI
