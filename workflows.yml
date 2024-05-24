@@ -11,7 +11,7 @@ test_build:
         repositories:
           - name: deepin_23_repo
             paths:
-              - target_project: linglong:app
+              - target_project: linglong:app:CI
                 target_repository: deepin_23_repo
             architectures:
               - x86_64
