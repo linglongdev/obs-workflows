@@ -1,43 +1,19 @@
 test_build:
   steps:
     - link_package:
-        source_project: deepin:Develop:dde
+        source_project: linglong:app
         source_package: %{SCM_REPOSITORY_NAME}
-        target_project: deepin:CI
+        target_project: linglong:app:CI
 
     - configure_repositories:
-        project: deepin:CI
+        project: linglong:app
         repositories:
-          - name: deepin_develop
+          - name: deepin_23_repo
             paths:
-              - target_project: deepin:CI
-                target_repository: deepin_develop
-            architectures:
-              - x86_64
-              - aarch64
-
-          - name: debian
-            paths:
-              - target_project: deepin:CI
-                target_repository: debian_sid
+              - target_project: linglong:app
+                target_repository: deepin_23_repo
             architectures:
               - x86_64
 
   filters:
     event: pull_request
-
-tag_build:
-  steps:
-    - trigger_services:
-        project: deepin:Unstable:dde
-        package: %{SCM_REPOSITORY_NAME}
-  filters:
-    event: tag_push
-
-commit_build:
-  steps:
-    - trigger_services:
-        project: deepin:Develop:dde
-        package: %{SCM_REPOSITORY_NAME}
-  filters:
-    event: push
