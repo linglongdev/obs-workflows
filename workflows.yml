@@ -6,7 +6,7 @@ test_build:
         target_project: linglong:app:CI
 
     - configure_repositories:
-        project: linglong:app
+        project: linglong:app:CI
         repositories:
           - name: deepin_23_repo
             paths:
