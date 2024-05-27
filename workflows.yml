@@ -16,5 +16,20 @@ test_build:
             architectures:
               - x86_64
 
+    - link_package:
+        source_project: linglong:app
+        source_package: template_CI_arm64
+        target_project: linglong:app:CI:arm64
+        target_package: %{SCM_REPOSITORY_NAME}
+
+    - configure_repositories:
+        project: linglong:app:CI:arm64
+        repositories:
+          - name: deepin_23_repo
+            paths:
+              - target_project: linglong:app:CI
+                target_repository: deepin_23_repo
+            architectures:
+              - aarch64
   filters:
     event: pull_request
