@@ -33,3 +33,13 @@ test_build:
               - aarch64
   filters:
     event: pull_request
+
+commit_build:
+  steps:
+    - branch_package:
+        source_project: linglong:app
+        source_package: template_CI
+        target_project: linglong:app:Testing
+        target_package: %{SCM_REPOSITORY_NAME}
+  filters:
+    event: push
