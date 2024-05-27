@@ -18,12 +18,12 @@ test_build:
 
     - link_package:
         source_project: linglong:app
-        source_package: template_CI_arm64
-        target_project: linglong:app:CI:arm64
+        source_package: template_CI_aarch64
+        target_project: linglong:app:CI:aarch64
         target_package: %{SCM_REPOSITORY_NAME}
 
     - configure_repositories:
-        project: linglong:app:CI:arm64
+        project: linglong:app:CI:aarch64
         repositories:
           - name: deepin_23_repo
             paths:
