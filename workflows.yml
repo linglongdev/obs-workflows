@@ -1,6 +1,6 @@
 test_build:
   steps:
-    - link_package:
+    - branch_package:
         source_project: linglong:app
         source_package: template_CI
         target_project: linglong:app:CI
@@ -15,42 +15,6 @@ test_build:
                 target_repository: deepin_23_repo
             architectures:
               - x86_64
-
-    - link_package:
-        source_project: linglong:app
-        source_package: template_CI_aarch64
-        target_project: linglong:app:CI:aarch64
-        target_package: %{SCM_REPOSITORY_NAME}
-
-    - configure_repositories:
-        project: linglong:app:CI:aarch64
-        repositories:
-          - name: deepin_23_repo
-            paths:
-              - target_project: linglong:app:CI
-                target_repository: deepin_23_repo
-            architectures:
-              - aarch64
-
-
-    - link_package:
-        source_project: linglong:app
-        source_package: template_CI_loongarch64
-        target_project: linglong:app:CI:loongarch64
-        target_package: %{SCM_REPOSITORY_NAME}
-
-    - configure_repositories:
-        project: linglong:app:CI:loongarch64
-        repositories:
-          - name: deepin_23_repo
-            paths:
-              - target_project: linglong:app:CI
-                target_repository: deepin_23_repo
-            architectures:
-              - loongarch64
-  filters:
-    event: pull_request
-
 commit_build:
   steps:
     - branch_package:
