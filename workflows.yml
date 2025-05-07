@@ -18,10 +18,10 @@ test_build:
     - configure_repositories:
         project: linglong:app:CI:amd64
         repositories:
-          - name: deepin_23_repo
+          - name: deepin_25_repo
             paths:
               - target_project: linglong:app:CI
-                target_repository: deepin_23_repo
+                target_repository: deepin_25_repo
             architectures:
               - x86_64
 
